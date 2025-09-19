@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi amor ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe0e9, #fff);
+      overflow: hidden;
+      font-family: 'Segoe Script', cursive;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 36px;
+      color: #c2185b;
+      text-shadow: 2px 2px 4px #f8bbd0;
+    }
+
+    /* Corazones flotando */
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: float 8s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Pingüinos */
+    .penguin {
+      font-size: 80px;
+      position: absolute;
+      bottom: 40px;
+    }
+
+    .left {
+      left: 50px;
+    }
+
+    .right {
+      right: 50px;
+    }
+
+    /* Carta */
+    .letter {
+      width: 280px;
+      margin: 150px auto 0 auto;
+      background: #fff;
+      border: 2px solid #e91e63;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .letter:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    .letter h2 {
+      margin: 0;
+      color: #e91e63;
+      font-size: 24px;
+    }
+
+    .letter p {
+      margin-top: 12px;
+      font-size: 18px;
+      line-height: 1.4;
+      display: none;
+      color: #333;
+    }
+
+    .letter.open p {
+      display: block;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🐧 Para el amor de mi vida 🐧</h1>
+
+  <!-- Pingüinos -->
+  <div class="penguin left">🐧</div>
+  <div class="penguin right">🐧</div>
+
+  <!-- Carta de amor -->
+  <div class="letter" id="loveLetter">
+    <h2>💌 Carta de amor</h2>
+    <p>
+      Mi amor, eres la razón por la que sonrío cada día. ❤️  
+      Me encanta tu forma de ver la vida, tu risa que ilumina todo a tu alrededor  
+      y la manera en que haces que el mundo sea mejor con solo estar en él. ✨  
+      No hay nada que desee más que compartir cada instante contigo.  
+      Te amo más de lo que las palabras pueden expresar. 💕
+    </p>
+  </div>
+
+  <script>
+    // Corazones flotando
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 30) + "px";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+    setInterval(createHeart, 500);
+
+    // Carta interactiva
+    const letter = document.getElementById("loveLetter");
+    letter.addEventListener("click", () => {
+      letter.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
